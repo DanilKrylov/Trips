@@ -4,93 +4,79 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Index" method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label class="control-label">Name</label>
-                <input asp-for="NameSearch" class="form-control" />
+<div style="background: white; border-radius: 5px; padding: 20px;">
+    <div class="table">
+        <a asp-action="Create" class="table__button" style="margin-bottom: 20px;"><span>Create</span></a>
+        <div class="table__search">
+            <form asp-action="Index" method="post">
+                <div class="table__search__block">
+                    <div class="table__search__item">
+                        <span class="display">Name</span>
+                        <input asp-for="NameSearch">
+                    </div>
+                    <div class="table__search__item">
+                        <span class="display">Min cost</span>
+                        <input asp-for="MinimumCost">
+                    </div>
+                    <div class="table__search__item">
+                        <span class="display">Max cost</span>
+                        <input asp-for="MaximumCost">
+                    </div>
+                    <div class="table__search__item">
+                        <span class="display">Cost order</span>
+                        <select asp-for="CostSort">
+                            <option value="0">Ascending</option>
+                            <option value="1">Descending</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="table__search__block">
+                    <div class="table__search__item">
+                        <div class="table__search__submit"><input type="submit" value="Search"></div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="table__content">
+            <div class="table__row">
+                <div class="table__cell">Name</div>
+                <div class="table__cell">Cost</div>
+                <div class="table__cell">Description</div>
+                <div class="table__cell">DaysCount</div>
+                <div class="table__cell">LivingType</div>
+                <div class="table__cell">FoodAvailable</div>
+                <div class="table__cell"></div>
             </div>
-            <div class="form-group">
-                <label class="control-label">Min cost</label>
-                <input asp-for="MinimumCost" class="form-control" />
+            @foreach (var item in Model.Trips)
+            {
+        <div class="table__row">
+            <div class="table__cell">
+                @Html.DisplayFor(modelItem => item.Name)
             </div>
-            <div class="form-group">
-                <label class="control-label">Max cost</label>
-                <input asp-for="MaximumCost" class="form-control" />
+            <div class="table__cell">
+                @Html.DisplayFor(modelItem => item.Cost)
             </div>
-            <div class="form-group">
-                <label class="control-label">Cost order</label>
-                <select asp-for="CostSort">
-                    <option value="0">Ascending</option>
-                    <option value="1">Descending</option>
-                </select>
+            <div class="table__cell">
+                @Html.DisplayFor(modelItem => item.Description)
             </div>
-            <div class="form-group">
-                <input type="submit" value="Search" class="btn btn-primary" />
+            <div class="table__cell">
+                @Html.DisplayFor(modelItem => item.DaysCount)
             </div>
-        </form>
+            <div class="table__cell">
+                @Html.DisplayFor(modelItem => item.LivingType)
+            </div>
+            <div class="table__cell">
+                @Html.DisplayFor(modelItem => item.FoodAvailable)
+            </div>
+            <div class="table__cell table__cell__buttons">
+                <div class="table__buttons">
+                    <a asp-action="Edit" asp-route-id="@item.TripId" class="table__button1"><span>Edit</span></a>
+                    <a asp-action="Details" asp-route-id="@item.TripId" class="table__button1"><span>Details</span></a>
+                    <a asp-action="Delete" asp-route-id="@item.TripId" class="table__button1"><span>Delete</span></a>
+                </div>
+            </div>
+        </div>
+            }
+        </div>
     </div>
 </div>
-
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                Name
-            </th>
-            <th>
-                Cost
-            </th>
-            <th>
-                Description
-            </th>
-            <th>
-                DaysCount
-            </th>
-            <th>
-                LivingType
-            </th>
-            <th>
-                FoodAvailable
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model.Trips) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cost)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DaysCount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LivingType)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FoodAvailable)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.TripId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.TripId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.TripId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>

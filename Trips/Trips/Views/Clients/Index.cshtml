@@ -4,61 +4,60 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Surname)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Patronomic)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PassportCode)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Gender)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Country)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
+<div style="background: white; border-radius: 5px; padding: 20px;">
+    <div class="table">
+        <a asp-action="Create" class="table__button" style="margin-bottom: 20px;"><span>Create</span></a>
+        <div class="table__content">
+            <div class="table__row">
+                <div class="table__cell">
+                    @Html.DisplayNameFor(model => model.Name)
+                </div>
+                <div class="table__cell">
+                    @Html.DisplayNameFor(model => model.Surname)
+                </div>
+                <div class="table__cell">
+                    @Html.DisplayNameFor(model => model.Patronomic)
+                </div>
+                <div class="table__cell">
+                    @Html.DisplayNameFor(model => model.PassportCode)
+                </div>
+                <div class="table__cell">
+                    @Html.DisplayNameFor(model => model.Gender)
+                </div>
+                <div class="table__cell">
+                    @Html.DisplayNameFor(model => model.Country)
+                </div>
+                <div class="table__cell"></div>
+            </div>
+            @foreach (var item in Model)
+            {
+        <div class="table__row">
+            <div class="table__cell">
                 @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
+            </div>
+            <div class="table__cell">
                 @Html.DisplayFor(modelItem => item.Surname)
-            </td>
-            <td>
+            </div>
+            <div class="table__cell">
                 @Html.DisplayFor(modelItem => item.Patronomic)
-            </td>
-            <td>
+            </div>
+            <div class="table__cell">
                 @Html.DisplayFor(modelItem => item.PassportCode)
-            </td>
-            <td>
+            </div>
+            <div class="table__cell">
                 @Html.DisplayFor(modelItem => item.Gender)
-            </td>
-            <td>
+            </div>
+            <div class="table__cell">
                 @Html.DisplayFor(modelItem => item.Country)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.ClientId">Edit</a> |
-                <a asp-action="Delete" asp-route-id="@item.ClientId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+            </div>
+            <div class="table__cell table__cell__buttons">
+                <div class="table__buttons">
+                    <a asp-action="Edit" asp-route-id="@item.ClientId" class="table__button1"><span>Edit</span></a>
+                    <a asp-action="Delete" asp-route-id="@item.ClientId" class="table__button1"><span>Delete</span></a>
+                </div>
+            </div>
+        </div>
+            }
+        </div>
+    </div>
+</div>

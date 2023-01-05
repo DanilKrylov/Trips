@@ -4,69 +4,64 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
-
-<h4>Trip</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="TripId" />
-            <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
+<div class="form">
+    <form asp-action="Edit">
+        <div class="form__content">
+            <div class="form__title">
+                <span>Edit Trip</span>
             </div>
-            <div class="form-group">
-                <label asp-for="Cost" class="control-label"></label>
-                <input asp-for="Cost" class="form-control" />
-                <span asp-validation-for="Cost" class="text-danger"></span>
+            <div class="form__items">
+                <input type="hidden" asp-for="TripId" />
+                <div class="form__items__item">
+                    <span class="display">Name</span>
+                    <input asp-for="Name">
+                    <span class="validation" asp-validation-for="Name"></span>
+                </div>
+                <div class="form__items__item">
+                    <span class="display">Cost</span>
+                    <input asp-for="Cost">
+                    <span class="validation" asp-validation-for="Cost"></span>
+                </div>
+                <div class="form__items__item">
+                    <span class="display">Description</span>
+                    <input asp-for="Description">
+                    <span class="validation" asp-validation-for="Description"></span>
+                </div>
+                <div class="form__items__item">
+                    <span class="display">DaysCount</span>
+                    <input asp-for="DaysCount">
+                    <span class="validation" asp-validation-for="DaysCount"></span>
+                </div>
+                <div class="form__items__item">
+                    <span class="display">LivingType</span>
+                    <input asp-for="LivingType">
+                    <span class="validation" asp-validation-for="LivingType"></span>
+                </div>
+                <div class="form__items__item">
+                    <input type="checkbox" class="custom-checkbox" id="happy" asp-for="FoodAvailable">
+                    <label for="happy">@Html.DisplayNameFor(model => model.FoodAvailable)</label>
+                </div>
+                <div class="form__items__item">
+                    <span class="display">Trip type name</span>
+                    <select asp-for="TripTypeId" class="form-control" asp-items="ViewBag.TripTypeId"></select>
+                    <span class="validation" asp-validation-for="TripTypeId"></span>
+                </div>
+                <div class="form__items__item">
+                    <span class="display">Trip way transport name</span>
+                    <select asp-for="WayOfTripId" class="form-control" asp-items="ViewBag.WayOfTripId"></select>
+                    <span class="validation" asp-validation-for="WayOfTripId"></span>
+                </div>
+                <div class="form__items__item">
+                    <span class="display">Trip place locality</span>
+                    <select asp-for="TripPlaceId" class="form-control" asp-items="ViewBag.TripPlaceId"></select>
+                    <span class="validation" asp-validation-for="TripPlaceId"></span>
+                </div>
+                <div class="form__items__item">
+                    <input type="submit" value="Save">
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control" />
-                <span asp-validation-for="Description" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DaysCount" class="control-label"></label>
-                <input asp-for="DaysCount" class="form-control" />
-                <span asp-validation-for="DaysCount" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="LivingType" class="control-label"></label>
-                <input asp-for="LivingType" class="form-control" />
-                <span asp-validation-for="LivingType" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="FoodAvailable" /> @Html.DisplayNameFor(model => model.FoodAvailable)
-                </label>
-            </div>
-            <div class="form-group">
-                <label class="control-label">Trip type name</label>
-                <select asp-for="TripTypeId" class="form-control" asp-items="ViewBag.TripTypeId"></select>
-                <span asp-validation-for="TripTypeId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label class="control-label">Trip way transport name</label>
-                <select asp-for="WayOfTripId" class="form-control" asp-items="ViewBag.WayOfTripId"></select>
-                <span asp-validation-for="WayOfTripId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label class="control-label">Trip place locality</label>
-                <select asp-for="TripPlaceId" class="form-control" asp-items="ViewBag.TripPlaceId"></select>
-                <span asp-validation-for="TripPlaceId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
+        </div>
+    </form>
 </div>
 
 @section Scripts {

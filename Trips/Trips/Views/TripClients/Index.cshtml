@@ -4,61 +4,56 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Index" method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label class="control-label">Min start time</label>
-                <input asp-for="MinDateTime" class="form-control"/>
+<div style="background: white; border-radius: 5px; padding: 20px;">
+    <div class="table">
+        <a asp-action="Create" class="table__button" style="margin-bottom: 20px;"><span>Create</span></a>
+        <div class="table__search">
+            <form asp-action="Index" method="post">
+                <div class="table__search__block">
+                    <div class="table__search__item">
+                        <span class="display">Min start time</span>
+                        <input asp-for="MinDateTime">
+                    </div>
+                    <div class="table__search__item">
+                        <span class="display">Max start time</span>
+                        <input asp-for="MaxDateTime">
+                    </div>
+                </div>
+                <div class="table__search__block">
+                    <div class="table__search__item">
+                        <div class="table__search__submit"><input type="submit" value="Search"></div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="table__content">
+            <div class="table__row">
+                <div class="table__cell">Client</div>
+                <div class="table__cell">Trip</div>
+                <div class="table__cell">Start Date</div>
+                <div class="table__cell"></div>
             </div>
-            <div class="form-group">
-                <label class="control-label">Max start time</label>
-                <input asp-for="MaxDateTime" class="form-control"/>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Search" class="btn btn-primary" />
-            </div>
-        </form>
+            @foreach (var item in Model.TripClients)
+            {
+                <div class="table__row">
+                    <div class="table__cell">
+                        @Html.DisplayFor(modelItem => item.Client.ClientId)
+                    </div>
+                    <div class="table__cell">
+                        @Html.DisplayFor(modelItem => item.Trip.TripId)
+                    </div>
+                    <div class="table__cell">
+                        @Html.DisplayFor(modelItem => item.StartDate)
+                    </div>
+                    <div class="table__cell table__cell__buttons">
+                        <div class="table__buttons">
+                            <a asp-action="Edit" asp-route-id="@item.TripClientId" class="table__button1"><span>Edit</span></a>
+                            <a asp-action="Delete" asp-route-id="@item.TripClientId" class="table__button1"><span>Delete</span></a>
+                            <a href="" class="table__button1"><span>Переглянути</span></a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
     </div>
 </div>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                Client
-            </th>
-            <th>
-                Trip
-            </th>
-            <th>
-                StartDate
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model.TripClients) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Client.ClientId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Trip.TripId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StartDate)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.TripClientId">Edit</a> |
-                <a asp-action="Delete" asp-route-id="@item.TripClientId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>

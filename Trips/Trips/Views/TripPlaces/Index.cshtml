@@ -4,82 +4,70 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Index" method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label class="control-label">Country</label>
-                <input asp-for="CountrySearch" class="form-control" />
+<div style="background: white; border-radius: 5px; padding: 20px;">
+    <div class="table">
+        <a asp-action="Create" class="table__button" style="margin-bottom: 20px;"><span>Create</span></a>
+        <div class="table__search">
+            <form asp-action="Index" method="post">
+                <div class="table__search__block">
+                    <div class="table__search__item">
+                        <span class="display">Country</span>
+                        <input asp-for="CountrySearch">
+                    </div>
+                    <div class="table__search__item">
+                        <span class="display">Locality</span>
+                        <input asp-for="LocalitySearch">
+                    </div>
+                    <div class="table__search__item">
+                        <span class="display">Country order alphabet</span>
+                        <select asp-for="CountryOrder">
+                            <option value="0">Ascending</option>
+                            <option value="1">Descending</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="table__search__block">
+                    <div class="table__search__item">
+                        <div class="table__search__submit"><input type="submit" value="Search"></div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="table__content">
+            <div class="table__row">
+                <div class="table__cell">Country</div>
+                <div class="table__cell">Locality</div>
+                <div class="table__cell">PlaceType</div>
+                <div class="table__cell">PlaceName</div>
+                <div class="table__cell">Description</div>
+                <div class="table__cell"></div>
             </div>
-            <div class="form-group">
-                <label class="control-label">Locality</label>
-                <input asp-for="LocalitySearch" class="form-control" />
+            @foreach (var item in Model.TripPlaces)
+            {
+        <div class="table__row">
+            <div class="table__cell">
+                @Html.DisplayFor(modelItem => item.Country)
             </div>
-            <div class="form-group">
-                <label class="control-label">Country order alphabet</label>
-                <select asp-for="CountryOrder">
-                    <option value="0">Ascending</option>
-                    <option value="1">Descending</option>
-                </select>
+            <div class="table__cell">
+                @Html.DisplayFor(modelItem => item.Locality)
             </div>
-            <div class="form-group">
-                <input type="submit" value="Search" class="btn btn-primary" />
+            <div class="table__cell">
+                @Html.DisplayFor(modelItem => item.PlaceType)
             </div>
-        </form>
+            <div class="table__cell">
+                @Html.DisplayFor(modelItem => item.PlaceName)
+            </div>
+            <div class="table__cell">
+                @Html.DisplayFor(modelItem => item.Description)
+            </div>
+            <div class="table__cell table__cell__buttons">
+                <div class="table__buttons">
+                    <a asp-action="Edit" asp-route-id="@item.TripPlaceId" class="table__button1"><span>Edit</span></a>
+                    <a asp-action="Delete" asp-route-id="@item.TripPlaceId" class="table__button1"><span>Delete</span></a>
+                </div>
+            </div>
+        </div>
+            }
+        </div>
     </div>
 </div>
-
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                Country
-            </th>
-            <th>
-                Locality
-            </th>
-            <th>
-                PlaceType
-            </th>
-            <th>
-                PlaceName
-            </th>
-            <th>
-                Description
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model.TripPlaces) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Country)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Locality)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PlaceType)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PlaceName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.TripPlaceId">Edit</a> |
-                <a asp-action="Delete" asp-route-id="@item.TripPlaceId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>

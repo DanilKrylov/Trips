@@ -4,54 +4,50 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
-
-<h4>Client</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="ClientId" />
-            <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
+<div class="form">
+    <form asp-action="Edit">
+        <div class="form__content">
+            <div class="form__title">
+                <span>Edit Client</span>
             </div>
-            <div class="form-group">
-                <label asp-for="Surname" class="control-label"></label>
-                <input asp-for="Surname" class="form-control" />
-                <span asp-validation-for="Surname" class="text-danger"></span>
+            <div class="form__items">
+                <input type="hidden" asp-for="ClientId" />
+                <div class="form__items__item">
+                    <span class="display">Name</span>
+                    <input asp-for="Name">
+                    <span class="validation" asp-validation-for="Name"></span>
+                </div>
+                <div class="form__items__item">
+                    <span class="display">Surname</span>
+                    <input asp-for="Surname">
+                    <span class="validation" asp-validation-for="Surname"></span>
+                </div>
+                <div class="form__items__item">
+                    <span class="display">Patronomic</span>
+                    <input asp-for="Patronomic">
+                    <span class="validation" asp-validation-for="Patronomic"></span>
+                </div>
+                <div class="form__items__item">
+                    <span class="display">Passport code</span>
+                    <input asp-for="PassportCode">
+                    <span class="validation" asp-validation-for="PassportCode"></span>
+                </div>
+                <div class="form__items__item">
+                    <span class="display">Gender</span>
+                    <input asp-for="Gender">
+                    <span class="validation" asp-validation-for="Gender"></span>
+                </div>
+                <div class="form__items__item">
+                    <span class="display">Country</span>
+                    <input asp-for="Country">
+                    <span class="validation" asp-validation-for="Country"></span>
+                </div>
+                <div class="form__items__item">
+                    <input type="submit" value="Save">
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Patronomic" class="control-label"></label>
-                <input asp-for="Patronomic" class="form-control" />
-                <span asp-validation-for="Patronomic" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PassportCode" class="control-label"></label>
-                <input asp-for="PassportCode" class="form-control" />
-                <span asp-validation-for="PassportCode" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Gender" class="control-label"></label>
-                <input asp-for="Gender" class="form-control" />
-                <span asp-validation-for="Gender" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Country" class="control-label"></label>
-                <input asp-for="Country" class="form-control" />
-                <span asp-validation-for="Country" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
+        </div>
+    </form>
 </div>
 
 @section Scripts {

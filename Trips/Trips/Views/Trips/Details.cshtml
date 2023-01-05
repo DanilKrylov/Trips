@@ -4,204 +4,289 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<div style="background: white; border-radius: 5px; padding: 20px;">
+    <div class="details">
+        <div class="details__content">
+            <div class="details__content__title"><span>Trip details</span></div>
+            <div class="details__items">
+                <div class="details__items__row">
+                    <div class="details__item__cell">
+                        <span>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </span>
+                    </div>
+                    <div class="details__item__cell">
+                        <span>
+                            @Html.DisplayFor(model => model.Name)
+                        </span>
+                    </div>
+                </div>
+                <div class="details__items__row">
+                    <div class="details__item__cell">
+                        <span>
+                            @Html.DisplayNameFor(model => model.Cost)
+                        </span>
+                    </div>
+                    <div class="details__item__cell">
+                        <span>
+                            @Html.DisplayFor(model => model.Cost)
+                        </span>
+                    </div>
+                </div>
+                <div class="details__items__row">
+                    <div class="details__item__cell">
+                        <span>
+                            @Html.DisplayNameFor(model => model.Description)
+                        </span>
+                    </div>
+                    <div class="details__item__cell">
+                        <span>
+                            @Html.DisplayFor(model => model.Description)
+                        </span>
+                    </div>
+                </div>
+                <div class="details__items__row">
+                    <div class="details__item__cell">
+                        <span>
+                            @Html.DisplayNameFor(model => model.DaysCount)
+                        </span>
+                    </div>
+                    <div class="details__item__cell">
+                        <span>
+                            @Html.DisplayFor(model => model.DaysCount)
+                        </span>
+                    </div>
+                </div>
+                <div class="details__items__row">
+                    <div class="details__item__cell">
+                        <span>
+                            @Html.DisplayNameFor(model => model.LivingType)
+                        </span>
+                    </div>
+                    <div class="details__item__cell">
+                        <span>
+                            @Html.DisplayFor(model => model.LivingType)
+                        </span>
+                    </div>
+                </div>
+                <div class="details__items__row">
+                    <div class="details__item__cell">
+                        <span>
+                            @Html.DisplayNameFor(model => model.FoodAvailable)
+                        </span>
+                    </div>
+                    <div class="details__item__cell">
+                        <span>
+                            @Html.DisplayFor(model => model.FoodAvailable)
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="details">
+        <div class="details__content">
+            <div class="details__content__title"><span>Trip Type details</span></div>
+            <div class="details__items">
+                <div class="details__items__row">
+                    <div class="details__item__cell">
+                        <span>
+                            @Html.DisplayNameFor(model => model.TripType.Name)
+                        </span>
+                    </div>
+                    <div class="details__item__cell">
+                        <span>
+                            @Html.DisplayFor(model => model.TripType.Name)
+                        </span>
+                    </div>
+                </div>
+                <div class="details__items__row">
+                    <div class="details__item__cell">
+                        <span>
+                            @Html.DisplayNameFor(model => model.TripType.Description)
+                        </span>
+                    </div>
+                    <div class="details__item__cell">
+                        <span>
+                            @Html.DisplayFor(model => model.TripType.Description)
+                        </span>
+                    </div>
+                </div>
+                <div class="details__items__row">
+                    <div class="details__item__cell">
+                        <span>
+                            @Html.DisplayNameFor(model => model.TripType.DangerLevel)
+                        </span>
+                    </div>
+                    <div class="details__item__cell">
+                        <span>
+                            @Html.DisplayFor(model => model.TripType.DangerLevel)
+                        </span>
+                    </div>
+                </div>
+                <div class="details__items__row">
+                    <div class="details__item__cell">
+                        <span>
+                            @Html.DisplayNameFor(model => model.TripType.Preparation)
+                        </span>
+                    </div>
+                    <div class="details__item__cell">
+                        <span>
+                            @Html.DisplayFor(model => model.TripType.Preparation)
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="details">
+        <div class="details__content">
+            <div class="details__content__title"><span>Way of trip details</span></div>
+            <div class="details__items">
+                <div class="details__items__row">
+                    <div class="details__item__cell">
+                        <span>
+                            @Html.DisplayNameFor(model => model.WayOfTrip.TransportName)
+                        </span>
+                    </div>
+                    <div class="details__item__cell">
+                        <span>
+                            @Html.DisplayFor(model => model.WayOfTrip.TransportName)
+                        </span>
+                    </div>
+                </div>
+                <div class="details__items__row">
+                    <div class="details__item__cell">
+                        <span>
+                            @Html.DisplayNameFor(model => model.WayOfTrip.TransportType)
+                        </span>
+                    </div>
+                    <div class="details__item__cell">
+                        <span>
+                            @Html.DisplayFor(model => model.WayOfTrip.TransportType)
+                        </span>
+                    </div>
+                </div>
+                <div class="details__items__row">
+                    <div class="details__item__cell">
+                        <span>
+                            @Html.DisplayNameFor(model => model.WayOfTrip.DriveTime)
+                        </span>
+                    </div>
+                    <div class="details__item__cell">
+                        <span>
+                            @Html.DisplayFor(model => model.WayOfTrip.DriveTime)
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="details">
+        <div class="details__content">
+            <div class="details__content__title"><span>Trip place details</span></div>
+            <div class="details__items">
+                <div class="details__items__row">
+                    <div class="details__item__cell">
+                        <span>
+                            @Html.DisplayNameFor(model => model.TripPlace.Country)
+                        </span>
+                    </div>
+                    <div class="details__item__cell">
+                        <span>
+                            @Html.DisplayFor(model => model.TripPlace.Country)
+                        </span>
+                    </div>
+                </div>
+                <div class="details__items__row">
+                    <div class="details__item__cell">
+                        <span>
+                            @Html.DisplayNameFor(model => model.TripPlace.Locality)
+                        </span>
+                    </div>
+                    <div class="details__item__cell">
+                        <span>
+                            @Html.DisplayFor(model => model.TripPlace.Locality)
+                        </span>
+                    </div>
+                </div>
+                <div class="details__items__row">
+                    <div class="details__item__cell">
+                        <span>
+                            @Html.DisplayNameFor(model => model.TripPlace.PlaceType)
+                        </span>
+                    </div>
+                    <div class="details__item__cell">
+                        <span>
+                            @Html.DisplayFor(model => model.TripPlace.PlaceType)
+                        </span>
+                    </div>
+                </div>
+                <div class="details__items__row">
+                    <div class="details__item__cell">
+                        <span>
+                            @Html.DisplayNameFor(model => model.TripPlace.PlaceName)
+                        </span>
+                    </div>
+                    <div class="details__item__cell">
+                        <span>
+                            @Html.DisplayFor(model => model.TripPlace.PlaceName)
+                        </span>
+                    </div>
+                </div>
+                <div class="details__items__row">
+                    <div class="details__item__cell">
+                        <span>
+                            @Html.DisplayNameFor(model => model.TripPlace.Description)
+                        </span>
+                    </div>
+                    <div class="details__item__cell">
+                        <span>
+                            @Html.DisplayFor(model => model.TripPlace.Description)
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<div>
-    <h4>Trip</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Cost)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Cost)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DaysCount)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DaysCount)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.LivingType)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.LivingType)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FoodAvailable)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.FoodAvailable)
-        </dd>
-    </dl>
-</div>
+    <div class="details__content__title"><span>Registered Clients</span></div>
+    <div class="table">
+        <div class="table__content">
+            <div class="table__row">
+                <div class="table__cell">Name</div>
+                <div class="table__cell">Surname</div>
+                <div class="table__cell">Patronomic</div>
+                <div class="table__cell">PassportCode</div>
+                <div class="table__cell">Gender</div>
+                <div class="table__cell">Country</div>
+            </div>
 
-
-
-<div>
-    <h4>Trip Type</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TripType.Name)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayNameFor(model => model.TripType.Name)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TripType.Description)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayNameFor(model => model.TripType.Description)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TripType.DangerLevel)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayNameFor(model => model.TripType.DangerLevel)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TripType.Preparation)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayNameFor(model => model.TripType.Preparation)
-        </dd>
-    </dl>
-</div>
-
-
-<div>
-    <h4>Way Of Trip</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.WayOfTrip.TransportName)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayNameFor(model => model.WayOfTrip.TransportName)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.WayOfTrip.TransportType)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayNameFor(model => model.WayOfTrip.TransportType)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.WayOfTrip.DriveTime)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayNameFor(model => model.WayOfTrip.DriveTime)
-        </dd>
-    </dl>
-</div>
-
-<div>
-    <h4>Trip Place</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TripPlace.Country)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayNameFor(model => model.TripPlace.Country)
-        </dd>
-         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TripPlace.Locality)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayNameFor(model => model.TripPlace.Locality)
-        </dd>
-         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TripPlace.PlaceType)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayNameFor(model => model.TripPlace.PlaceType)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TripPlace.PlaceName)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayNameFor(model => model.TripPlace.PlaceName)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TripPlace.Description)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayNameFor(model => model.TripPlace.Description)
-        </dd>
-    </dl>
-</div>
-
-
-
-<div>
-    <h4>Registered Clients</h4>
-    <hr />
-    <table class="table">
-        <thead>
-            <tr>
-                <th>
-                    Name
-                </th>
-                <th>
-                    Surname
-                </th>
-                <th>
-                    Patronomic
-                </th>
-                <th>
-                    PassportCode
-                </th>
-                <th>
-                    Gender
-                </th>
-                <th>
-                    Country
-                </th>
-            </tr>
-        </thead>
-        <tbody>
             @foreach (var item in Model.TripClients.Select(c => c.Client))
             {
-                <tr>
-                    <td>
+                <div class="table__row">
+                    <div class="table__cell">
                         @Html.DisplayFor(modelItem => item.Name)
-                    </td>
-                    <td>
+                    </div>
+                    <div class="table__cell">
                         @Html.DisplayFor(modelItem => item.Surname)
-                    </td>
-                    <td>
+                    </div>
+                    <div class="table__cell">
                         @Html.DisplayFor(modelItem => item.Patronomic)
-                    </td>
-                    <td>
+                    </div>
+                    <div class="table__cell">
                         @Html.DisplayFor(modelItem => item.PassportCode)
-                    </td>
-                    <td>
+                    </div>
+                    <div class="table__cell">
                         @Html.DisplayFor(modelItem => item.Gender)
-                    </td>
-                    <td>
+                    </div>
+                    <div class="table__cell">
                         @Html.DisplayFor(modelItem => item.Country)
-                    </td>
-                </tr>
+                    </div>
+                </div>
             }
-        </tbody>
-    </table>
-</div>
+        </div>
+    </div>
 
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.TripId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model.TripId" class="table__button" style="margin-bottom: 20px;"><span>Edit</span></a>
 </div>
