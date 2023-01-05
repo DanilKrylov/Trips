@@ -4,43 +4,42 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.TransportType)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TransportName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DriveTime)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.TransportType)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TransportName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DriveTime)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.WayOfTripId">Edit</a> |
-                <a asp-action="Delete" asp-route-id="@item.WayOfTripId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div style="background: white; border-radius: 5px; padding: 20px;">
+    <div class="table">
+        <a asp-action="Create" class="table__button" style="margin-bottom: 20px;"><span>Create</span></a>
+        <div class="table__content">
+            <div class="table__row">
+                <div class="table__cell">
+                    @Html.DisplayNameFor(model => model.TransportType)
+                </div>
+                <div class="table__cell">
+                    @Html.DisplayNameFor(model => model.TransportName)
+                </div>
+                <div class="table__cell">
+                    @Html.DisplayNameFor(model => model.DriveTime)
+                </div>
+                <div class="table__cell"></div>
+            </div>
+            @foreach (var item in Model)
+            {
+                <div class="table__row">
+                    <div class="table__cell">
+                        @Html.DisplayFor(modelItem => item.TransportType)
+                    </div>
+                    <div class="table__cell">
+                        @Html.DisplayFor(modelItem => item.TransportName)
+                    </div>
+                    <div class="table__cell">
+                        @Html.DisplayFor(modelItem => item.DriveTime)
+                    </div>
+                    <div class="table__cell table__cell__buttons">
+                        <div class="table__buttons">
+                            <a asp-action="Edit" asp-route-id="@item.WayOfTripId" class="table__button1"><span>Edit</span></a>
+                            <a asp-action="Delete" asp-route-id="@item.WayOfTripId" class="table__button1"><span>Delete</span></a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

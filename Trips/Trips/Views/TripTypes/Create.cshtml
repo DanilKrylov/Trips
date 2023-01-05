@@ -4,43 +4,39 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
-
-<h4>TripType</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
+<div class="form">
+    <form asp-action="Create">
+        <div class="form__content">
+            <div class="form__title">
+                <span>Create TripType</span>
             </div>
-            <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control" />
-                <span asp-validation-for="Description" class="text-danger"></span>
+            <div class="form__items">
+                <div class="form__items__item">
+                    <span class="display">Name</span>
+                    <input asp-for="Name">
+                    <span class="validation" asp-validation-for="Name"></span>
+                </div>
+                <div class="form__items__item">
+                    <span class="display">Description</span>
+                    <input asp-for="Description">
+                    <span class="validation" asp-validation-for="Description"></span>
+                </div>
+                <div class="form__items__item">
+                    <span class="display">DangerLevel</span>
+                    <input asp-for="DangerLevel">
+                    <span class="validation" asp-validation-for="DangerLevel"></span>
+                </div>
+                <div class="form__items__item">
+                    <span class="display">Preparation</span>
+                    <input asp-for="Preparation">
+                    <span class="validation" asp-validation-for="Preparation"></span>
+                </div>
+                <div class="form__items__item">
+                    <input type="submit" value="Create">
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="DangerLevel" class="control-label"></label>
-                <input asp-for="DangerLevel" class="form-control" />
-                <span asp-validation-for="DangerLevel" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Preparation" class="control-label"></label>
-                <input asp-for="Preparation" class="form-control" />
-                <span asp-validation-for="Preparation" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
+        </div>
+    </form>
 </div>
 
 @section Scripts {
