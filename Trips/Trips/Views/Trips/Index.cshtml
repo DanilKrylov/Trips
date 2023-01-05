@@ -1,0 +1,96 @@
+﻿@model TripsViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Index" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label class="control-label">Name</label>
+                <input asp-for="NameSearch" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">Min cost</label>
+                <input asp-for="MinimumCost" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">Max cost</label>
+                <input asp-for="MaximumCost" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">Cost order</label>
+                <select asp-for="CostSort">
+                    <option value="0">Ascending</option>
+                    <option value="1">Descending</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Search" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Cost
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                DaysCount
+            </th>
+            <th>
+                LivingType
+            </th>
+            <th>
+                FoodAvailable
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Trips) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DaysCount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LivingType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FoodAvailable)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.TripId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.TripId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.TripId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,44 @@
+﻿@model Trips.Models.WayOfTrip
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>WayOfTrip</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="WayOfTripId" />
+            <div class="form-group">
+                <label asp-for="TransportType" class="control-label"></label>
+                <input asp-for="TransportType" class="form-control" />
+                <span asp-validation-for="TransportType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TransportName" class="control-label"></label>
+                <input asp-for="TransportName" class="form-control" />
+                <span asp-validation-for="TransportName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DriveTime" class="control-label"></label>
+                <input asp-for="DriveTime" class="form-control" />
+                <span asp-validation-for="DriveTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

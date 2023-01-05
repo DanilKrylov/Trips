@@ -1,0 +1,85 @@
+﻿@model PlaceViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Index" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label class="control-label">Country</label>
+                <input asp-for="CountrySearch" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">Locality</label>
+                <input asp-for="LocalitySearch" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">Country order alphabet</label>
+                <select asp-for="CountryOrder">
+                    <option value="0">Ascending</option>
+                    <option value="1">Descending</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Search" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Country
+            </th>
+            <th>
+                Locality
+            </th>
+            <th>
+                PlaceType
+            </th>
+            <th>
+                PlaceName
+            </th>
+            <th>
+                Description
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.TripPlaces) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Country)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Locality)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlaceType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlaceName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.TripPlaceId">Edit</a> |
+                <a asp-action="Delete" asp-route-id="@item.TripPlaceId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
